@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Antara</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fcefee, #f9e0e3);
+    font-family: 'Dancing Script', cursive;
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #d94f70;
+    position: relative;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    margin: 0;
+    animation: fadeInUp 2s ease forwards;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-top: 10px;
+    color: #a64a5a;
+    animation: fadeInUp 2.5s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Floating hearts animation */
+  .heart {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: #d94f70;
+    transform: rotate(-45deg);
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+    z-index: 10;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d94f70;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(-45deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-150vh) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive text */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>Dear Antara,</h1>
+  <p>You are truly amazing and special. This is just a little note to say you are cherished.</p>
+
+  <p style="text-align: center; white-space: pre-line;"><strong>You mean so much to me, and your presence brightens my days. You are more than enough just as you are, and I love you for who you are—not for perfection. I’m proud of how far you’ve come and the person you are becoming. No matter your doubts, remember you are special and deeply loved. ❤️</strong></p>
+
+  <script>
+    // Function to create floating hearts dynamically
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+      heart.style.width = 15 + Math.random() * 15 + 'px';
+      heart.style.height = heart.style.width;
+      heart.style.opacity = 0.7 + Math.random() * 0.3;
+      document.body.appendChild(heart);
+
+      // Remove heart after animation
+      heart.addEventListener('animationend', () => {
+        heart.remove();
+      });
+    }
+
+    // Create hearts at intervals
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
